@@ -1,0 +1,91 @@
+{
+	// Place your snippets for lua here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	 "local replicated": {
+	 	"prefix": "replicated",
+	 	"body": [
+	 		"local Replicated = game:GetService(\"ReplicatedStorage\")"
+	],
+	"description": "Shorthand insert ReplicatedStorage"
+	},
+	"local service": {
+		"prefix": "KnitService",
+		"body": [
+			"local Replicated = game:GetService(\"ReplicatedStorage\")",
+			"",
+			"local Shared = Replicated:WaitForChild(\"Shared\");",
+			"local Packages = Replicated:WaitForChild(\"Packages\");",
+			"",
+			"local Knit = require(Packages.Knit);",
+			"",
+			"local service = Knit.CreateService {",
+			"\tName = \"$0Service\";",
+			"}",
+			"",
+			"function service:KnitStart()",
+			"",
+			"end",
+			"",
+			"return service"
+		],
+		"description": "Creates a Knit service.",
+		"isFileTemplate": true
+	},
+	"local controller": {
+		"prefix": "KnitController",
+		"body": [
+			"local Replicated = game:GetService(\"ReplicatedStorage\")",
+			"",
+			"local Shared = Replicated:WaitForChild(\"Shared\");",
+			"local Packages = Replicated:WaitForChild(\"Packages\");",
+			"",
+			"local Knit = require(Packages.Knit);",
+			"",
+			"local controller = Knit.CreateController {",
+			"\tName = \"$0Controller\";",
+			"}",
+			"",
+			"function controller:KnitStart()",
+			"",
+			"end",
+			"",
+			"return controller"
+		],
+		"description": "Creates a Knit controller.",
+		"isFileTemplate": true
+	},
+	"local tag": {
+		"prefix": "Component",
+		"body": [
+			"local Replicated = game:GetService(\"ReplicatedStorage\")",
+			"",
+			"local Shared = Replicated:WaitForChild(\"Shared\");",
+			"local Packages = Replicated:WaitForChild(\"Packages\");",
+			"",
+			"local Knit = require(Packages.Knit);",
+			"local Component = require(Packages.Component)",
+			"",
+			"local tag = Component.New {",
+			"\tTag = \"TagTest\";",
+			"}",
+			"",
+			"function tag:Construct()",
+			"\tself.MyData = {int = 1}",
+			"end",
+			"",
+			"function tag:Start()",
+			"\t--instance loaded",
+			"    local instance = self.Instance",
+			"end",
+			"",
+			"function tag:Stop()",
+			"\t--instance removed",
+			"end",
+			"",
+			"return tag"
+		],
+		"isFileTemplate": true
+	}
+}
